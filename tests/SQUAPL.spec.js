@@ -5,6 +5,7 @@ test ('has title', async ({ page }) => {
 // Go to url
 await (page.goto("https://squapl.com/"))
 
+
 // verify text     Class name can be denoted with ('.') and class name 
 await expect(page.locator('.t1')).toContainText("Elevating Businesses With IT Solutions")
 
@@ -32,7 +33,7 @@ await expect(page.locator(descriptionOfElevatingBusiness)).toContainText(descrip
 let overview="//p[contains(text(),'Squapl Technologies, is a leading provider of tech')]"
 await expect(page.locator(overview)).toHaveText(/Squapl Technologies/);
 
-// verify image is visible 
+// verify image is visible
 let ConsultingImage = "//div[@id='tab1']//img[@alt='consulting image']"
 await expect(page.locator(ConsultingImage)).toBeVisible;
 
