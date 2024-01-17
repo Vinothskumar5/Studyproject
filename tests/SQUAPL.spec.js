@@ -16,6 +16,7 @@ await expect(page.locator(learnmoreButton)).toBeEnabled;
 let aboutSQUAPLButton ="//div[@class='link']//a[@href='/pageuc']"
 await (page.locator(aboutSQUAPLButton)).scrollIntoViewIfNeeded;
 
+
 // list of elements 
 let navigatioBarlist="//div[@class='navbar-links']//ul"
 const listOfElementsTab =["   01Overview    02 Consulting    03 Client story    04 Insights    05 Inside squapl    06 Discover more  "];
