@@ -35,6 +35,7 @@ await expect(page.locator(overview)).toHaveText(/Squapl Technologies/);
 // verify image is visible 
 let ConsultingImage = "//div[@id='tab1']//img[@alt='consulting image']"
 await expect(page.locator(ConsultingImage)).toBeVisible;
+await expect(page.locator(ConsultingImage)).toBeVisible;
 
 
 });
