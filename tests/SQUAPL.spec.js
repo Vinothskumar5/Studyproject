@@ -37,5 +37,11 @@ await expect(page.locator(overview)).toHaveText(/Squapl Technologies/);
 let ConsultingImage = "//div[@id='tab1']//img[@alt='consulting image']"
 await expect(page.locator(ConsultingImage)).toBeVisible;
 
+// click on about us 
+let AboutUS="//span[@class='link aboutUs-link']//a[@class='link-style link primary']"
+await page.click(AboutUS);
+
+// Verify text in about us page
+await page.getByText("Who We Are?")
 
 });
