@@ -1,6 +1,6 @@
 // Assertions
 import { test, expect } from '@playwright/test';
-test ('has title', async ({ page }) => {
+test ('Verify', async ({ page }) => {
 
 // Go to url
 await (page.goto("https://squapl.com/"))
@@ -43,5 +43,15 @@ await page.click(AboutUS);
 
 // Verify text in about us page
 await page.getByText("Who We Are?")
+
+// Verify dropdown text 
+let ProjectDropdown="//div[contains(text(),'Project')]"
+let CaseStdiesDropdown="//div[@class='link'][normalize-space()='Case Studies']"
+await page.locator(CaseStdiesDropdown).click(ProjectDropdown);
+
+// verify selected dropdown
+let projectimage= "//div[@class='items row-1-top']"
+await page.locator(projectimage).toBeVisible;
+
 
 });
