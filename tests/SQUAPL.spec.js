@@ -1,9 +1,10 @@
 // Assertions
 import { test, expect } from '@playwright/test';
-test ('has title', async ({ page }) => {
+test ('Verify', async ({ page }) => {
 
 // Go to url
 await (page.goto("https://squapl.com/"))
+
 
 // verify text     Class name can be denoted with ('.') and class name 
 await expect(page.locator('.t1')).toContainText("Elevating Businesses With IT Solutions")
@@ -32,10 +33,26 @@ await expect(page.locator(descriptionOfElevatingBusiness)).toContainText(descrip
 let overview="//p[contains(text(),'Squapl Technologies, is a leading provider of tech')]"
 await expect(page.locator(overview)).toHaveText(/Squapl Technologies/);
 
-// verify image is visible 
+// verify image is visible
 let ConsultingImage = "//div[@id='tab1']//img[@alt='consulting image']"
 await expect(page.locator(ConsultingImage)).toBeVisible;
 await expect(page.locator(ConsultingImage)).toBeVisible;
+
+// click on about us 
+let AboutUS="//span[@class='link aboutUs-link']//a[@class='link-style link primary']"
+await page.click(AboutUS);
+
+// Verify text in about us page
+await page.getByText("Who We Are?")
+
+// Verify dropdown text 
+let ProjectDropdown="//div[contains(text(),'Project')]"
+let CaseStdiesDropdown="//div[@class='link'][normalize-space()='Case Studies']"
+await page.locator(CaseStdiesDropdown).click(ProjectDropdown);
+
+// verify selected dropdown
+let projectimage= "//div[@class='items row-1-top']"
+await page.locator(projectimage).toBeVisible;
 
 
 });
