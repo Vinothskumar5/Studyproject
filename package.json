@@ -8,5 +8,9 @@
     "@types/node": "^20.11.5",
     "allure-playwright": "^2.10.0"
   },
-  "scripts": {}
+  "scripts": {},
+  "dependencies": {
+    "allure-commandline": "^2.26.0",
+    "allure-playwright": "^2.10.0"
+  }
 }
