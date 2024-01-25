@@ -1,22 +1,29 @@
 const { test, expect, chromium } = require('@playwright/test');
 
-test('whatsapplogin', async ({ page }) => {
-  const browser = await (chromium).launch('C:\\Users\\vinot\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Cache\\Cache_Data');
-  //context = await browser.newContext();
-  //const page = await context.newPage();
-  await page.goto('https://www.flipkart.com/');
-  await page.waitForTimeout(3000);
-  let search = '//input[@placeholder="Search for Products, Brands and More"]';
-  await expect(page.locator(search)).toHaveValue("Search for Products, Brands and More");
-  //await expect(page).toHaveText("Mobiles & Tablets");
-  await page.locator(search).fill('camera');
-  let option1 = "//div[normalize-space()='in Cameras']";
-  await page.locator(option1).click;
-  await expect(page.locator(option1)).toHaveText("Canon EOS 3000D DSLR Camera 1 Camera Body, 18 - 55 mm Lens");
-  //await expect(page).toHaveText("₹30,990");
-  //await expect(page).toHaveText("CATEGORIES");
-  let camera = "//div[normalize-space()='Canon EOS 3000D DSLR Camera 1 Camera Body, 18 - 55 mm Lens']";
-  await page.locator(camera).click;
-  await page.waitForTimeout(3000);
-  await browser.close();
+test('HandlingTabs', async ({ page, context}) => {
+  
+  test.setTimeout(120000);
+  let url = "https://www.flipkart.com/";
+
+  await page.goto(url);
+
+  const productSearch = await page.locator("//input[@placeholder='Search for Products, Brands and More']");
+  await productSearch.fill("water bottle");
+  await productSearch.press('Enter');
+
+  // const virtuousBottle = await page.locator("//body/div[@id='container']/div/div[@class='_36fx1h _6t1WkM _3HqJxg']/div[@class='_1YokD2 _2GoDe3']/div[@class='_1YokD2 _3Mn1Gg']/div[1]/div[1]/div[1]/div[1]", {timeout:0});
+  //await virtuousBottle.click();
+
+  const [newPage] = await Promise.all([
+    context.waitForEvent('page'),
+    page.getByRole('link', { name: 'NIRLON Summer Cool Single' }).nth(1).click()
+  ]);
+
+  //await newPage.waitForEvent();
+  console.log(await newPage.title());
+
+  const addToCart = await newPage.getByRole('button', { name: 'Add to cart' });
+  await addToCart.click();
+
+
 });
