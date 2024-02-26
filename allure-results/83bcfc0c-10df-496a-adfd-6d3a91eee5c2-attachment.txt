@@ -1,0 +1,3 @@
+Model: sdk_gphone_x86_64
+Serial: emulator-5554
+https://www.flipkart.com/

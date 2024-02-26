@@ -11,7 +11,7 @@ test('HandlingTabs', async ({ page, context}) => {
   await productSearch.fill("water bottle");
   await productSearch.press('Enter');
 
-  // const virtuousBottle = await page.locator("//body/div[@id='container']/div/div[@class='_36fx1h _6t1WkM _3HqJxg']/div[@class='_1YokD2 _2GoDe3']/div[@class='_1YokD2 _3Mn1Gg']/div[1]/div[1]/div[1]/div[1]", {timeout:0});
+  //const virtuousBottle = await page.locator("//body/div[@id='container']/div/div[@class='_36fx1h _6t1WkM _3HqJxg']/div[@class='_1YokD2 _2GoDe3']/div[@class='_1YokD2 _3Mn1Gg']/div[1]/div[1]/div[1]/div[1]", {timeout:0});
   //await virtuousBottle.click();
 
   const [newPage] = await Promise.all([

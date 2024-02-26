@@ -1,0 +1,4 @@
+Model: sdk_gphone_x86_64
+Serial: emulator-5554
+https://m.facebook.com/
+getByTestId('m_login_email')
